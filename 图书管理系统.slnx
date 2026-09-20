@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="图书管理系统/图书管理系统.vcxproj" Id="996a0d56-7494-4696-a95d-81b521ed1d61" />
+</Solution>
