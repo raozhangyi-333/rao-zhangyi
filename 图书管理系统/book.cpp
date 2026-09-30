@@ -1,70 +1,47 @@
-#include<iostream>
-#include<string>
-#include"book.h"
+﻿#include"Book.h"
 using namespace std;
-Book::Book(string id1, string name1, string author1,
-	string publisher1, double price1, bool state1) {
+Book::Book() {}
+Book::Book(int id1, string name1, string author1,
+	string publisher1, double price1, int stock1) {
 	book_id = id1;
 	book_name = name1;
 	author = author1;
 	publisher = publisher1;
 	price = price1;
-	book_state = state1;
-};//创建书本
-bool Book::getstate() {
-	return book_state;
-};//true=已借出, false=在馆
-string Book::getnamne() {
+	stock = stock1;
+
+}//初始化书本
+int Book::getstock()const {
+	return stock;
+}
+int Book::getid() const{
+	return book_id;
+};
+string Book::getname() {
 	return book_name;
 };
-string Book::getauthor() {
-	return author;
-};
-string Book::getpublisher() {
-	return publisher;
- };
-double Book::getprice() {
-	return price;
-};//查询书本
+void Book::show() const{
+	cout << "name:" << book_name << endl;
+	cout << "id:" << book_id << endl;
+	cout << "author:" << author << endl;
+	cout << "stock:" << stock << endl;
+	cout << "price:" << price << endl;
+	cout << "publisher:" << publisher << endl;
+}
+//查询书本信息
 void Book::addstock(int add1) {
 	stock += add1;
 
-};
-Book::~Book() {};//析构函数
+}
+void Book::deplete(int dep1) {
+	stock -= dep1;
+}//修改书本信息
 
-Student::Student(int num1, string name1,
-	string department1, int borrow1) {
-	stu_num = num1;
-	stu_name = name1;
-	stu_department = department1;
-	max_borrow = borrow1;
-
-
-};//创建学生
-
-string Student::getnamne() {
-	return stu_name;
-};
-int Student::getnum() {
-	return stu_num;
-};
-string Student::getdepartment() {
-	return stu_department;
-};
-int Student::getmax_borrow() {
-	return max_borrow;
-};
-Student::~Student() {};
-Teacher::Teacher(string name1, int num1, string department1, int borrow1) {
-	t_name = name1;
-	t_num = num1;
-	t_department = department1;
-	max_borrow = borrow1;
-};
-void Teacher::show() {
-	cout<<"name:"<< t_name << endl;
-	cout << "id:" << t_num << endl;
-	cout << "department:" << t_department << endl;
-	cout << "max_borrow:" << max_borrow << endl;
-};
-Teacher::~Teacher() {};
+bool Book::check_id(int id1) const{
+	if (book_id != id1) {
+		cout << "id is wrong!" << endl;
+		return false;
+	}
+	else return true;
+}//核实id合法性
+Book::~Book() {}

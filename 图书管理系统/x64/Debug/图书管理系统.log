@@ -1,8 +1,5 @@
-﻿  book.cpp
-  main.cpp
-D:\vs代码\图书管理系统\图书管理系统\book.cpp(15,9): error C2065: “state”: 未声明的标识符
-D:\vs代码\图书管理系统\图书管理系统\book.cpp(18,9): error C2065: “name”: 未声明的标识符
-D:\vs代码\图书管理系统\图书管理系统\book.cpp(21,9): error C2065: “author”: 未声明的标识符
-D:\vs代码\图书管理系统\图书管理系统\book.cpp(24,9): error C2065: “publisher”: 未声明的标识符
-D:\vs代码\图书管理系统\图书管理系统\book.cpp(27,9): error C2065: “price”: 未声明的标识符
-  正在生成代码...
+﻿  main.cpp
+D:\vs代码\图书管理系统\图书管理系统\main.cpp(55,22): warning C4930: “Book b1(void)”: 未调用原型函数(是否是有意用变量定义的?)
+D:\vs代码\图书管理系统\图书管理系统\main.cpp(118,25): warning C4930: “Teacher t1(std::string,int,std::string,int)”: 未调用原型函数(是否是有意用变量定义的?)
+D:\vs代码\图书管理系统\图书管理系统\main.cpp(211,25): warning C4930: “Student s1(std::string,int,std::string,int)”: 未调用原型函数(是否是有意用变量定义的?)
+  图书管理系统.vcxproj -> D:\vs代码\图书管理系统\x64\Debug\图书管理系统.exe

@@ -4,6 +4,7 @@
         "Source": "d:\\vs代码\\图书管理系统\\图书管理系统\\book.cpp",
         "ProvidedModule": "",
         "Includes": [
+            "d:\\vs代码\\图书管理系统\\图书管理系统\\book.h",
             "d:\\vs\\vc\\tools\\msvc\\14.51.36231\\include\\iostream",
             "d:\\vs\\vc\\tools\\msvc\\14.51.36231\\include\\yvals_core.h",
             "d:\\vs\\vc\\tools\\msvc\\14.51.36231\\include\\vcruntime.h",
@@ -128,8 +129,7 @@
             "d:\\vs\\vc\\tools\\msvc\\14.51.36231\\include\\clocale",
             "d:\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\locale.h",
             "d:\\vs\\vc\\tools\\msvc\\14.51.36231\\include\\ostream",
-            "d:\\vs\\vc\\tools\\msvc\\14.51.36231\\include\\string",
-            "d:\\vs代码\\图书管理系统\\图书管理系统\\book.h"
+            "d:\\vs\\vc\\tools\\msvc\\14.51.36231\\include\\string"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
