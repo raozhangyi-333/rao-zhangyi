@@ -1,6 +1,6 @@
 ﻿#include"Book.h"
 using namespace std;
-Book::Book() {}
+Book::Book(){}
 Book::Book(int id1, string name1, string author1,
 	string publisher1, double price1, int stock1) {
 	book_id = id1;
@@ -23,10 +23,9 @@ string Book::getname() {
 void Book::show() const{
 	cout << "name:" << book_name << endl;
 	cout << "id:" << book_id << endl;
-	cout << "author:" << author << endl;
+	cout << "publisher:" << publisher << endl;
 	cout << "stock:" << stock << endl;
 	cout << "price:" << price << endl;
-	cout << "publisher:" << publisher << endl;
 }
 //查询书本信息
 void Book::addstock(int add1) {
@@ -37,11 +36,16 @@ void Book::deplete(int dep1) {
 	stock -= dep1;
 }//修改书本信息
 
-bool Book::check_id(int id1) const{
-	if (book_id != id1) {
-		cout << "id is wrong!" << endl;
-		return false;
+bool Book::isIdValid()
+{
+	if (book_id >= 10000 && book_id <= 19999)
+	{
+		return true;  // 合法
 	}
-	else return true;
-}//核实id合法性
+	else
+	{
+		return false; // 非法
+	}
+}
+
 Book::~Book() {}

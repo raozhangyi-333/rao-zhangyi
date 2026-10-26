@@ -4,13 +4,13 @@
 using namespace std;
 class Book
 {
-private:
+protected:
 	int book_id;
 	string book_name;
-	string author;
-	string publisher;
-	double price;
 	int stock;
+	string author;
+	int price;
+	string publisher;
 public:
 	Book();
 	Book(int id1, string name1, string author1,
@@ -20,7 +20,14 @@ public:
 	int getstock()const;
 	void addstock(int add1);
 	void deplete(int dep1);
-	bool check_id(int id1) const;//检查id合法性
-	void show()const;
-	~Book();
+	bool isIdValid();
+	virtual void show() const;
+	virtual ~Book();
 };
+//侧重点在于借阅管理
+
+	//所借图书自超期之日起，按每天0.05元的标准收取超期使用费，10日内归还的免收超期使用费；
+	// 超期11日(含)以上的图书， 自第11日起，按每天0.1元的标准收取超期使用费；归还日期若处于寒暑假期间，
+	// 可在开学后2周内归还，2周内仍未归还的图书，将继续计算超期。
+
+//改动：基类book只保留通用特性和各子类通用函数

@@ -1,5 +1,3 @@
-﻿  main.cpp
-D:\vs代码\图书管理系统\图书管理系统\main.cpp(55,22): warning C4930: “Book b1(void)”: 未调用原型函数(是否是有意用变量定义的?)
-D:\vs代码\图书管理系统\图书管理系统\main.cpp(118,25): warning C4930: “Teacher t1(std::string,int,std::string,int)”: 未调用原型函数(是否是有意用变量定义的?)
-D:\vs代码\图书管理系统\图书管理系统\main.cpp(211,25): warning C4930: “Student s1(std::string,int,std::string,int)”: 未调用原型函数(是否是有意用变量定义的?)
+﻿  正在扫描源以查找模块依赖项...
+  Library.cpp
   图书管理系统.vcxproj -> D:\vs代码\图书管理系统\x64\Debug\图书管理系统.exe

@@ -1,42 +1,10 @@
 ﻿#include"Book.h"
-#include"Teacher.h"
-#include"Student.h"
+#include"Person.h"
+#include"Library.h"
 using namespace std;
-void showMenu_s()
-{
-    cout << "==图书馆管理系统==" << endl;
-    cout << "1.注册个人信息 " << endl;
-    cout << "2. 查询图书" << endl;
-    cout << "3. 借阅图书" << endl;
-    cout << "4. 归还图书" << endl;
-    cout << "5. 查询个人信息" << endl;
-    cout << "0. 退出系统" << endl;
-}
-void showMenu_t()
-{
-    cout << "==图书馆管理系统==" << endl;
-    cout << "1. 注册个人信息" << endl;
-    cout << "2. 查询图书" << endl;
-    cout << "3. 借阅图书" << endl;
-    cout << "4. 归还图书" << endl;
-    cout << "5. 查询个人信息" << endl;
-    cout << "0. 退出系统" << endl;
-   
-}
-void showMenu()
-{
-    cout << "==图书管理系统==" << endl;
-    cout << "1.增加图书 " << endl;
-    cout << "2. 查询图书" << endl;
-    cout << "3. 删除图书" << endl;
-    cout << "0. 退出系统" << endl;
-}
-int main() 
-{
-    vector<Student> studentlist;//学生列表
-    vector<Book> booklist;//存放图书
-    vector<Teacher> teacherlist;//教师列表
-    int choice1,choice2;
+/*int main()
+{   
+    int choice1;
     while (true)
     {
         cout << "==图书管理系统==" << endl;
@@ -48,74 +16,30 @@ int main()
         switch (choice1)
         {
         case 1:
-            showMenu();
-            cout << "请输入您的选择：";
-            cin >> choice2;
-            switch (choice2) {
-                Book b1();
-            case 1:
-            {
-                cout << "请添加书籍信息" << endl;
-                int id1, stock1;
-                string name1, author1, publisher1;
-                double price1;
-                cin >> id1 >> name1 >> author1 >> publisher1 >> price1 >> stock1;
-                Book b1(id1, name1, author1, publisher1, price1, stock1);
-                //4.把对象存入vector容器保存
-                booklist.push_back(b1);
-                break;
-            }
-            case 2:
-            {
-                cout << "请输入待查询的书籍id" << endl;
-                int search;
-                cin >> search;
-                bool found = false;
-                for (const auto& b1 : booklist)
-                {
-                    if (b1.getid() == search) {
-                        b1.show();
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found)cout << "没有找到该图书";
-                break;
-            }
-            case 3:
-            {
-                cout << "请输入待删除的书籍id" << endl;
-                int search;
-                cin >> search;
-                bool found = false;
-                for (auto it = booklist.begin();it != booklist.end();)
-                {
-                    if (it->getid() == search) {
-                        booklist.erase(it);
-                        found = true;
-                        cout << "删除成功" << endl;
-                        break;
-                    }
-                }
-                if (!found) cout << "没有找到该图书" << endl;
-                break;
-            }
-            case 0:
-                cout << "退出图书馆管理系统，再见！" << endl;
-                return 0;
-            default:
-                cout << "输入错误，请选择 0~3 的选项！" << endl;
-                break;
-            }
+            Library lib;  // 创建图书馆对象
+            lib.run();    // 启动系统
+          
         case 2:
-            showMenu_t();
+           
             cout << "请输入您的选择：" << endl;
             cin >> choice2;
             switch (choice2) {
             case 1:
             {
-                cout << "请添加个人信息" << endl;
-                Teacher t1(string name1, int id1, string department1, int borrow1);
+                cout << "请添加教师个人信息" << endl;
+                string name, department;
+                int id;
+                cout << "请输入姓名：";
+                cin >> name;
+                cout << "请输入工号：";
+                cin >> id;
+                cout << "请输入所属部门：";
+                cin >> department;
+
+                // 动态创建教师对象，最大借阅额度由子类构造默认设为10
+                Teacher* t1 = new Teacher(name, id, department);
+                PersonList.push_back(t1);
+                cout << "教师账号创建成功！" << endl;
                 break;
             }
             case 2:
@@ -124,10 +48,10 @@ int main()
                 int search;
                 cin >> search;
                 bool found = false;
-                for (const auto& b1 : booklist)
+                for (const auto& b1 : BookList)
                 {
-                    if (b1.getid() == search) {
-                        b1.show();
+                    if (b1->getid() == search) {
+                        b1->show();
                         found = true;
                         break;
                     }
@@ -144,10 +68,10 @@ int main()
                 cout << "借阅数量为：" << endl;
                 cin >> borrownum;
                 bool found = false;
-                for (auto& b1 : booklist)
+                for (auto& b1 : BookList)
                 {
-                    if (b1.getid() == search) {
-                        t.borrowbook(b1, borrownum);
+                    if (b1->getid() == search) {
+                        t.borrowbook(*b1, borrownum);
                         found = true;
                         break;
                     }
@@ -164,10 +88,10 @@ int main()
                 cout << "归还数量为：" << endl;
                 cin >> returnnum;
                 bool found = false;
-                for (auto& b1 : booklist)
+                for (auto& b1 : BookList)
                 {
-                    if (b1.getid() == search) {
-                        t.returnbook(b1, returnnum);
+                    if (b1->getid() == search) {
+                        t.returnbook(*b1, returnnum);
                         found = true;
                         break;
                     }
@@ -181,10 +105,10 @@ int main()
                 int search;
                 cin >> search;
                 bool found = false;
-                for (const auto& t : teacherlist)
+                for (const auto& t : PersonList)
                 {
-                    if (t.getid() == search) {
-                        t.show();
+                    if (t->getid() == search) {
+                        t->show();
                         found = true;
                         break;
                     }
@@ -208,7 +132,18 @@ int main()
             case 1:
             {
                 cout << "请添加个人信息" << endl;
-                Student s1(string name1, int id1, string department1, int borrow1);
+                string name, major;
+                int id;
+                cout << "请输入姓名：";
+                cin >> name;
+                cout << "请输入学号：";
+                cin >> id;
+                cout << "请输入专业：";
+                cin >> major;
+                Student* s1 = new Student(name, id, major);
+                PersonList.push_back(s1);  // 存入读者管理容器
+
+                cout << "学生账号创建成功！" << endl;
                 break;
             }
             case 2:
@@ -217,10 +152,10 @@ int main()
                 int search;
                 cin >> search;
                 bool found = false;
-                for (const auto& b1 : booklist)
+                for (const auto& b1 : BookList)
                 {
-                    if (b1.getid() == search) {
-                        b1.show();
+                    if (b1->getid() == search) {
+                        b1->show();
                         found = true;
                         break;
                     }
@@ -238,10 +173,10 @@ int main()
                 cout << "借阅数量为：" << endl;
                 cin >> borrownum;
                 bool found = false;
-                for (auto& b1 : booklist)
+                for (auto& b1 : BookList)
                 {
-                    if (b1.getid() == search) {
-                        s.borrowbook(b1, borrownum);
+                    if (b1->getid() == search) {
+                        s.borrowbook(*b1, borrownum);
                         found = true;
                         break;
                     }
@@ -260,10 +195,10 @@ int main()
                 cout << "归还数量为：" << endl;
                 cin >> returnnum;
                 bool found = false;
-                for (auto& b1 : booklist)
+                for (auto& b1 : BookList)
                 {
-                    if (b1.getid() == search) {
-                        s.returnbook(b1, returnnum);
+                    if (b1->getid() == search) {
+                        s.returnbook(*b1, returnnum);
                         found = true;
                         break;
                     }
@@ -279,10 +214,10 @@ int main()
                 int search;
                 cin >> search;
                 bool found = false;
-                for (const auto& s : studentlist)
+                for (const auto& s : PersonList)
                 {
-                    if (s.getid() == search) {
-                        s.show();
+                    if (s->getid() == search) {
+                        s->show();
                         found = true;
                         break;
                     }
@@ -302,4 +237,10 @@ int main()
         }
     }
         return 0;
+}*/
+int main()
+{
+    Library lib;    // 创建图书馆系统对象，所有数据和功能都封装在内部
+    lib.run();      // 启动系统总入口：身份选择 → 对应菜单 → 业务调度
+    return 0;
 }
