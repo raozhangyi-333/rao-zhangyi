@@ -9,8 +9,8 @@ Book::Book(int id1, string name1, string author1,
 	publisher = publisher1;
 	price = price1;
 	stock = stock1;
-
 }//初始化书本
+
 int Book::getstock()const {
 	return stock;
 }
@@ -27,6 +27,13 @@ void Book::show() const{
 	cout << "stock:" << stock << endl;
 	cout << "price:" << price << endl;
 }
+string Book::getauthor()const { 
+	return author; }
+string Book::getpublisher()const { 
+	return publisher; }
+double Book::getprice()const { 
+	return price; }
+
 //查询书本信息
 void Book::addstock(int add1) {
 	stock += add1;
@@ -47,5 +54,5 @@ bool Book::isIdValid()
 		return false; // 非法
 	}
 }
-
+//判断id合法性
 Book::~Book() {}

@@ -7,10 +7,10 @@ private:
 	string major;
 public:
 	Student();
-	Student(string name1, int id1, string major1);
+	Student(string name1, string id1, string major1);
+	string getMajor() const;  
+	int borrowDays() const override;
 	void show()const override;
-	int getmax_borrow()const;
-	
 	~Student() override;
 };
 

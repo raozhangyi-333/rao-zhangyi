@@ -1,0 +1,34 @@
+# 编译输出
+x64/
+x86/
+Debug/
+Release/
+
+# VS中间文件
+*.obj
+*.pdb
+*.tlog
+*.idb
+*.log
+*.ilk
+*.exp
+*.lib
+*.exe
+*.dll
+
+# VS本地配置缓存（就是你图二的.vs文件夹！）
+.vs/
+VSWorkspaceState.json
+
+# 用户配置
+*.user
+*.userosscache
+*.suo
+
+# 无关文档图片
+*.docx
+*.jpg
+*.jpeg
+*.png
+*.gif
+_exp_guide_md.txt

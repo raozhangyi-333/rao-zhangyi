@@ -11,6 +11,9 @@ public:
     Magazine();
     Magazine(int id, string name, string author, string publisher,
         double price, int stock, int issue, string issn);
+    int bookkind() const override;   // 返回2
+    int getIssue() const;
+    string getIssn() const;
     void show() const override;
     ~Magazine() override;
 };

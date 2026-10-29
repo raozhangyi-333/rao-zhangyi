@@ -8,7 +8,12 @@ Magazine::Magazine(int id, string name, string author, string publisher,
 {
     
 }
-
+int Magazine::bookkind() const { 
+    return 2; }
+int Magazine::getIssue() const { 
+    return issue; }
+string Magazine::getIssn() const { 
+    return issn; }
 void Magazine::show() const {
     cout << "=== 杂 志 ===" << endl;
     Book::show();

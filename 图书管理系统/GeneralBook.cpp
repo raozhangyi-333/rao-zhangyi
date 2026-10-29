@@ -4,6 +4,10 @@ GeneralBook::GeneralBook(int id, string name, string author, string publisher,
     : Book(id, name, author, publisher, price, stock) {
     this->isbn = isbn;
 }
+int GeneralBook::bookkind() const { 
+    return 1; }
+string GeneralBook::getIsbn() const { 
+    return isbn; }
 
 void GeneralBook::show() const {
     cout << "=== 一般图书 ===" << endl;

@@ -1,14 +1,10 @@
-# Visual Studio
-.vs/
-Debug/
-Release/
-x64/
-x86/
-*.ipch
-*.pdb
-*.obj
-*.exe
-*.ilk
-*.log
-*.tlog
-*.vcxproj.user
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/C++实验指导书（001）.docx
+/_exp_guide_md.txt
+/_fileflow_同学_small.jpg
+/_fileflow_同学.jpg
+/x64/Debug
+/.vs/图书管理系统.slnx

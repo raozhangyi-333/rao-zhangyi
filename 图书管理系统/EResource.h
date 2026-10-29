@@ -11,6 +11,9 @@ public:
     EResource();
     EResource(int id, string name, string author, string publisher,
         double price, int stock, string format, double size);
+    int bookkind() const override;   // 返回3
+    string getFormat() const;
+    double getSize() const;
     void show() const override;
     ~EResource()override;
 };

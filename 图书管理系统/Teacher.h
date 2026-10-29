@@ -7,7 +7,9 @@ private:
 	string t_department;
 public:
 	Teacher();
-	Teacher(string name, int id,string department1);
+	Teacher(string name, string id,string department1);
+	string getDepartment() const;
 	void show()const override;
+	int borrowDays() const override;
 	~Teacher() override;
 };

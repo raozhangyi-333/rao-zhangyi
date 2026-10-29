@@ -10,6 +10,12 @@ EResource::EResource(int id, string name, string author, string publisher,
     format(format),
     size(size) {
 }
+int EResource::bookkind() const { 
+    return 3; }
+string EResource::getFormat() const { 
+    return format; }
+double EResource::getSize() const { 
+    return size; }
 
 void EResource::show() const {
     cout << "=== 电子资源 ===" << endl;
